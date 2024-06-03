@@ -1,24 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaUser, FaLock } from 'react-icons/fa'
+import "./Login.css"
 
 const Login = ()=>{
+	// Usuário e senha:
+	const [ username, setUsername ] = useState("");
+	const [ password, setPassword ] = useState("");
+
+	const handleSubmit = (event)=>{
+		// Evento responsável para a página não recarregar após o "submit".
+		event.preventDefault();
+		alert(`Enviando os dados: ${username} - ${password}`)
+	}
+
 	return (
 		<div className="container">
-			<form>
+			<form onSubmit={handleSubmit}>
 				<h1>Acesse o sistema</h1>
 				
 				<div>
-					<input type="email" placeholder="E-mail" />
+					<input type="email" placeholder="E-mail" onChange={(event)=>setUsername(event.target.value)}/>
 					<FaUser className='icon' />
 				</div>
 
 				<div>
-					<input type="password" placeholder="Senha" />
+					<input type="password" placeholder="Senha" onChange={(event)=>setPassword(event.target.value)} />
 					<FaLock className='icon' />
 				</div>
 				
 				<div className="recall-forget">
-					<label htmlForm="">
+					<label>
 						<input type="checkbox" />
 						Lembre de mim
 					</label>
