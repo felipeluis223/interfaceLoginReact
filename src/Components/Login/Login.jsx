@@ -18,13 +18,13 @@ const Login = ()=>{
 			<form onSubmit={handleSubmit}>
 				<h1>Acesse o sistema</h1>
 				
-				<div>
-					<input type="email" placeholder="E-mail" onChange={(event)=>setUsername(event.target.value)}/>
+				<div className="input-field">
+					<input type="email" placeholder="E-mail" onChange={(event)=>setUsername(event.target.value)} required/>
 					<FaUser className='icon' />
 				</div>
 
-				<div>
-					<input type="password" placeholder="Senha" onChange={(event)=>setPassword(event.target.value)} />
+				<div className="input-field">
+					<input type="password" placeholder="Senha" onChange={(event)=>setPassword(event.target.value)} required />
 					<FaLock className='icon' />
 				</div>
 				
